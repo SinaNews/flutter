@@ -513,14 +513,14 @@ class AndroidProject {
 
   File get appManifestFile {
     return isUsingGradle
-        ? fs.file(fs.path.join(hostAppGradleRoot.path, 'app', 'src', 'main', 'AndroidManifest.xml'))
+        ? fs.file(fs.path.join(hostAppGradleRoot.path, 'SinaBlog', 'src', 'main', 'AndroidManifest.xml'))
         : hostAppGradleRoot.childFile('AndroidManifest.xml');
   }
 
-  File get gradleAppOutV1File => gradleAppOutV1Directory.childFile('app-debug.apk');
+  File get gradleAppOutV1File => gradleAppOutV1Directory.childFile('SinaBlog-debug.apk');
 
   Directory get gradleAppOutV1Directory {
-    return fs.directory(fs.path.join(hostAppGradleRoot.path, 'app', 'build', 'outputs', 'apk'));
+    return fs.directory(fs.path.join(hostAppGradleRoot.path, 'SinaBlog', 'build', 'outputs', 'apk'));
   }
 
   /// Whether the current flutter project has an Android sub-project.
@@ -533,7 +533,7 @@ class AndroidProject {
   }
 
   String get applicationId {
-    final File gradleFile = hostAppGradleRoot.childDirectory('app').childFile('build.gradle');
+    final File gradleFile = hostAppGradleRoot.childDirectory('SinaBlog').childFile('build.gradle');
     return _firstMatchInFile(gradleFile, _applicationIdPattern)?.group(1);
   }
 
@@ -577,7 +577,7 @@ class AndroidProject {
 
   File get localPropertiesFile => _flutterLibGradleRoot.childFile('local.properties');
 
-  Directory get pluginRegistrantHost => _flutterLibGradleRoot.childDirectory(isModule ? 'Flutter' : 'app');
+  Directory get pluginRegistrantHost => _flutterLibGradleRoot.childDirectory(isModule ? 'Flutter' : 'SinaBlog');
 
   void _regenerateLibrary() {
     _deleteIfExistsSync(ephemeralDirectory);

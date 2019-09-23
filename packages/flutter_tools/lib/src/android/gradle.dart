@@ -79,7 +79,7 @@ FlutterPluginVersion getFlutterPluginVersion(AndroidProject project) {
     return FlutterPluginVersion.v1;
   }
   final File appGradle = project.hostAppGradleRoot.childFile(
-      fs.path.join('app', 'build.gradle'));
+      fs.path.join('SinaBlog', 'build.gradle'));
   if (appGradle.existsSync()) {
     for (String line in appGradle.readAsLinesSync()) {
       if (line.contains(RegExp(r'apply from: .*/flutter.gradle'))) {
@@ -213,12 +213,12 @@ Future<GradleProject> _readGradleProject({bool isLibrary = false}) async {
   // flavors and build types defined in the project. If gradle fails, then check if the failure is due to t
   try {
     final RunResult propertiesRunResult = await runCheckedAsync(
-      <String>[gradle, isLibrary ? 'properties' : 'app:properties'],
+      <String>[gradle, isLibrary ? 'properties' : 'SinaBlog:properties'],
       workingDirectory: hostAppGradleRoot.path,
       environment: _gradleEnv,
     );
     final RunResult tasksRunResult = await runCheckedAsync(
-      <String>[gradle, isLibrary ? 'tasks': 'app:tasks', '--all', '--console=auto'],
+      <String>[gradle, isLibrary ? 'tasks': 'SinaBlog:tasks', '--all', '--console=auto'],
       workingDirectory: hostAppGradleRoot.path,
       environment: _gradleEnv,
     );
@@ -966,10 +966,10 @@ class GradleProject {
     if (androidBuildInfo.splitPerAbi) {
       return androidBuildInfo.targetArchs.map<String>((AndroidArch arch) {
         final String abi = getNameForAndroidArch(arch);
-        return 'app$flavorString-$abi-$buildType.apk';
+        return 'SinaBlog$flavorString-$abi-$buildType.apk';
       });
     }
-    return <String>['app$flavorString-$buildType.apk'];
+    return <String>['SinaBlog$flavorString-$buildType.apk'];
   }
 
   String bundleTaskFor(BuildInfo buildInfo) {

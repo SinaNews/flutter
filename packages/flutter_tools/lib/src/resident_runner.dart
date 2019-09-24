@@ -346,7 +346,7 @@ class FlutterDevice {
       targetPlatform,
       applicationBinary: hotRunner.applicationBinary,
     );
-
+    
     if (package == null) {
       String message = 'No application found for $targetPlatform.';
       final String hint = await getMissingPackageHintForPlatform(targetPlatform);

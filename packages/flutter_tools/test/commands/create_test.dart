@@ -882,7 +882,7 @@ void main() {
       <String>[
         'lib/main.dart',
         'flutter_project.iml',
-        'android/app/src/main/AndroidManifest.xml',
+        'android/SinaBlog/src/main/AndroidManifest.xml',
         'ios/Flutter/AppFrameworkInfo.plist',
       ],
       unexpectedPaths: <String>['test'],

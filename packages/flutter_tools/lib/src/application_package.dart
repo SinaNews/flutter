@@ -176,7 +176,7 @@ class AndroidApk extends ApplicationPackage {
     } on xml.XmlParserException catch (exception) {
       String manifestLocation;
       if (androidProject.isUsingGradle) {
-        manifestLocation = fs.path.join(androidProject.hostAppGradleRoot.path, 'app', 'src', 'main', 'AndroidManifest.xml');
+        manifestLocation = fs.path.join(androidProject.hostAppGradleRoot.path, 'SinaBlog', 'src', 'main', 'AndroidManifest.xml');
       } else {
         manifestLocation = fs.path.join(androidProject.hostAppGradleRoot.path, 'AndroidManifest.xml');
       }

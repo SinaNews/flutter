@@ -431,7 +431,7 @@ class AndroidProject {
     return isUsingGradle
         ? fs.file(fs.path.join(
             hostAppGradleRoot.path,
-            'SinaBlog'
+            'SinaBlog',
             'src',
             'main',
             'AndroidManifest.xml'))

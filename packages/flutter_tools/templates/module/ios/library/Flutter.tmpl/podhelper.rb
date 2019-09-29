@@ -61,7 +61,8 @@ plugin_pods.map { |r|
 
 # Ensure that ENABLE_BITCODE is set to NO, add a #include to Generated.xcconfig, and
 # add a run script to the Build Phases.
-post_install do |installer|
+# post_install do |installer|
+def update_configs(installer, framework_dir)
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
             config.build_settings['ENABLE_BITCODE'] = 'NO'
